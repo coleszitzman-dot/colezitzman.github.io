@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Personality Quiz</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Georgia, 'Times New Roman', serif;
+            background-color: #2b2b2b; /* warm slate grey */
+            color: #f2f2f2;
+        }
+
+        .quiz-container {
+            max-width: 700px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background-color: #1f1f1f; /* darker slate panel */
+            border-radius: 12px;
+            box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2E4F3D; /* forest green accent */
+            margin-bottom: 2rem;
+        }
+
+        .question {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .option-btn {
+            background-color: #2E4F3D;
+            color: #f2f2f2;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .option-btn:hover {
+            background-color: #3d6b52;
+        }
+
+        #result {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: #2E4F3D;
+            text-align: center;
+            font-size: 1.2rem;
+            display: none;
+        }
+
+        #home-link {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+            color: #88bfa1;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        #home-link:hover {
+            color: #a6d8be;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h1>Music Personality Quiz</h1>
+
+        <div id="quiz">
+            <div id="question" class="question"></div>
+            <div id="options" class="options"></div>
+        </div>
+
+        <div id="result"></div>
+
+        <a id="home-link" href="index.html">← Go Home</a>
+    </div>
+
+    <script>
+        // QUESTION BANK (5+ adaptive questions)
+        const questions = {
+            start: {
+                text: "What kind of music vibe do you usually lean toward?",
+                options: [
+                    { text: "Chill / Vibey", next: "chill" },
+                    { text: "Energetic / Hype", next: "hype" },
+                    { text: "Emotional / Deep", next: "emotional" },
+                    { text: "Experimental / Unique", next: "experimental" }
+                ]
+            },
+
+            chill: {
+                text: "Pick your preferred chill environment:",
+                options: [
+                    { text: "Late night drives", next: "tempo" },
+                    { text: "Relaxing at home", next: "tempo" },
+                    { text: "Hanging with friends", next: "tempo" }
+                ]
+            },
+
+            hype: {
+                text: "What kind of hype are we talking?",
+                options: [
+                    { text: "Gym intensity", next: "tempo" },
+                    { text: "Party vibes", next: "tempo" },
+                    { text: "Battle-ready energy", next: "tempo" }
+                ]
+            },
+
+            emotional: {
+                text: "What emotional tone fits you best?",
+                options: [
+                    { text: "Nostalgic", next: "tempo" },
+                    { text: "Heartfelt", next: "tempo" },
+                    { text: "Dreamy", next: "tempo" }
+                ]
+            },
+
+            experimental: {
+                text: "What kind of experimental sound hits harder?",
+                options: [
+                    { text: "Weird beats", next: "tempo" },
+                    { text: "Odd vocals", next: "tempo" },
+                    { text: "Genre blends", next: "tempo" }
+                ]
+            },
+
+            tempo: {
+                text: "What tempo range do you enjoy most?",
+                options: [
+                    { text: "Slow & spacey", next: "instrument" },
+                    { text: "Mid-tempo groove", next: "instrument" },
+                    { text: "Fast-paced", next: "instrument" }
+                ]
+            },
+
+            instrument: {
+                text: "What’s the most important element to you?",
+                options: [
+                    { text: "Lyrics", next: "final" },
+                    { text: "Production", next: "final" },
+                    { text: "Vocals", next: "final" },
+                    { text: "Instrumentation", next: "final" }
+                ]
+            },
+
+            final: {
+                text: "Pick the setting where you listen to music most:",
+                options: [
+                    { text: "Alone with headphones", result: "headphones" },
+                    { text: "Driving", result: "driving" },
+                    { text: "With friends", result: "friends" },
+                    { text: "At the gym", result: "gym" }
+                ]
+            }
+        };
+
+        // RESULTS
+        const results = {
+            headphones: "Your vibe leans toward deep, immersive artists like **Frank Ocean**, **Bon Iver**, **James Blake**, or **Sufjan Stevens**.",
+            driving: "You're built for cinematic road vibes. Try **Mac Miller**, **The 1975**, **Joji**, **Post Malone**, or **Lana Del Rey**.",
+            friends: "You’ve got social energy — think **Drake**, **Dua Lipa**, **Rihanna**, **The Weeknd**, or **KAYTRANADA**.",
+            gym: "High intensity. You'd like **Travis Scott**, **Kendrick Lamar**, **21 Savage**, **Skrillex**, or **Metro Boomin**."
+        };
+
+        //--------------------------
+        // QUIZ LOGIC
+        //--------------------------
+
+        let current = "start";
+        let answeredCount = 0;
+
+        function loadQuestion(key) {
+            const q = questions[key];
+            current = key;
+
+            document.getElementById("question").textContent = q.text;
+            const optionsDiv = document.getElementById("options");
+            optionsDiv.innerHTML = "";
+
+            q.options.forEach(option => {
+                const btn = document.createElement("button");
+                btn.className = "option-btn";
+                btn.textContent = option.text;
+
+                btn.onclick = () => {
+                    answeredCount++;
+                    if (option.result) {
+                        showResult(option.result);
+                    } else {
+                        loadQuestion(option.next);
+                    }
+                };
+
+                optionsDiv.appendChild(btn);
+            });
+        }
+
+        function showResult(resultKey) {
+            document.getElementById("quiz").style.display = "none";
+            const resultBox = document.getElementById("result");
+            resultBox.style.display = "block";
+            resultBox.innerHTML = results[resultKey];
+        }
+
+        loadQuestion("start");
+    </script>
+
+</body>
+</html>

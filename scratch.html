@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Spotify Wrapped</title>
+    <a class="gohome" href="index.html">Back to Home</a>
+    <link rel="stylesheet" href="css/mystyles.css">
+
+</head>
+
+<body>
+    <h1>MY SPOTIFY WRAPPED</h1>
+    <div class="intro-1">
+        <p>Every year, Spotify Wrapped gives you a personalized summary of your exact listening habits that year</p>
+        <p>It's a fun way to look back on the music you've been listening to and discover new artists and songs.</p>
+        <p>The goal of this page is to let you take a peak into my Spotify Wrapped this year and get a feel for my
+            current music taste!</p>
+    </div>
+    <div class="image-scratch">
+        <img src="assets/img/scratch-img1.webp" alt="Spotify Wrapped">
+    </div>
+
+    <div class="main-body">
+        <div class="main-section">
+            <h2 class="body-header">Top Artists</h2>
+            <ol class="top-artists">
+                <li class="li-artists"> <a class="miller-anchor"
+                        href="https://open.spotify.com/artist/4LLpKhyESsyAXpc4laK94U?si=cc9e3IrnR7CBQsrIkBhAOw">Mac
+                        Miller</a>
+                    <ul>
+                        <li>"Come Back to Earth"</li>
+                        <li>"Blue World"</li>
+                        <li>"That's on Me"</li>
+                    </ul>
+                </li>
+
+                <li class="li-artists">Daniel Caesar
+                    <ul>
+                        <li>"Japanese Denim"</li>
+                        <li>"Always"</li>
+                        <li>"Best Part"</li>
+                    </ul>
+                </li>
+
+                <li class="li-artists">Frank Ocean
+                    <ul>
+                        <li>"Self Control"</li>
+                        <li>"Godspeed"</li>
+                        <li>"Ivy"</li>
+                    </ul>
+                </li>
+            </ol>
+            <h2 class="body-header">Top Songs</h2>
+            <ol class="top-artists">
+                <li>1. "Come Back to Earth" - Mac Miller</li>
+                <li>2. "Blue World" - Mac Miller</li>
+                <li>3. "That's on Me" - Mac Miller</li>
+                <li>4. "Sunflower" - Rex Orange County</li>
+                <li>5. "Missed Calls" - Mac Miller</li>
+            </ol>
+
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="play-intro">
+        <h2 class="body-header">My 2025 Playlist</h2>
+        <p class="intro-1">If you are interested in looking at even more of my top songs, explore this playlist below!
+        </p>
+    </div>
+
+    <div class="spotify-embed">
+        <iframe data-testid="embed-iframe" style="border-radius:12px"
+            src="https://open.spotify.com/embed/playlist/37i9dQZEVXdd91QsyCaY6U?utm_source=generator&theme=0"
+            width="50%" height="352" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
+        </iframe>
+    </div>
+
+    <div class="quiz-link-container">
+        <a class="quiz-link" href="app.html">Take the Music Personality Quiz →</a>
+    </div>
+
+    <h2 class="tableau-header">Worldwide Spotify Listening Data</h2>
+<p class="tableau-subtext">
+    An interactive Tableau dashboard showing global streaming behavior, top artists, and listening trends.
+</p>
+
+<div class="tableau-container">
+    <div class='tableauPlaceholder' id='vizStreaming' style='position: relative'>
+        <noscript>
+            <a href='#'>
+                <img alt='Streams and Artists on Spotify'
+                    src='https://public.tableau.com/static/images/FQ/FQ8YD7XJF/1_rss.png'
+                    style='border:none;' />
+            </a>
+        </noscript>
+
+        <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='path' value='shared/FQ8YD7XJF' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https://public.tableau.com/static/images/FQ/FQ8YD7XJF/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+        </object>
+    </div>
+</div>
+
+<script type='text/javascript'>
+    var divElement = document.getElementById('vizStreaming');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+
+    vizElement.style.width = '100%';
+    vizElement.style.maxWidth = '900px';
+    vizElement.style.height = '800px';
+
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+</script>
+
+
+</body>
+
+</html>
