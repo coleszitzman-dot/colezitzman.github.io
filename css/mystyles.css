@@ -1,0 +1,206 @@
+h1{ 
+    font-family: 'Arial', sans-serif;
+    color: darkgreen;
+    text-align: center;
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+    ;
+}
+
+.gohome {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: lightgray;
+    padding: .5rem;
+    margin-top: 2%;
+    margin-left: 1.5rem;
+    display: inline-block;
+    border-radius: 10px;
+   
+    
+}
+
+body{
+    background-color: grey;
+}
+
+.intro-1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    color: black;
+    font-size: large;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    max-width: 40rem;
+    margin: 0 auto;
+}
+
+.image-scratch {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+.image-scratch img {
+    max-width: 50%;
+    height: auto;
+}
+
+.main-body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    color: black;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.body-header {
+    color: darkgreen;
+    margin-top: 3rem;
+    text-align: center;
+}
+
+.top-artists {
+    font-family: Georgia, 'Times New Roman', serif;
+    margin: 2rem auto;
+    max-width: 50%;
+    line-height: 1.8;
+}
+
+.top-artists ul {
+    margin-top: .5rem;
+    margin-bottom: 1rem;
+    margin-left: 1.5rem;
+    font-size: 0.95rem;
+    color: #444;
+}
+
+.li-artists {
+    font-weight: bold;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding-bottom: 56.25%;
+    
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.miller-anchor {
+    color: black;
+}
+
+.spotify-embed {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+.quiz-link-container {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.quiz-link {
+    display: inline-block;
+    background-color: #2E4F3D; /* forest green */
+    color: #f2f2f2;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: Georgia, 'Times New Roman', serif;
+    transition: 0.25s;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.25);
+}
+
+.quiz-link:hover {
+    background-color: #3d6b52; /* lighter forest green */
+    transform: translateY(-3px);
+    box-shadow: 0px 6px 14px rgba(0,0,0,0.35);
+}
+
+
+.tableau-header { 
+    text-align: center;
+    font-size: 1.8rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-top: 4rem;
+    margin-bottom: 0.5rem;
+    color: #1d3d2f; /* Forest green accent */
+}
+
+.tableau-subtext {
+    text-align: center;
+    font-size: 1rem;
+    max-width: 60%;
+    margin: 0 auto 2rem auto;
+    color: #444;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+.tableau-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+    width: 100%;
+    margin-left: auto;
+}
+
+#vizStreaming {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#vizStreaming object {
+    width: 100% !important;
+    max-width: 1100px !important; /* Wider dashboard */
+    height: 900px !important;     /* Shorter display */
+    margin: 0 auto;
+    display: block;
+}
+
+/* Centers the entire Tableau block */
+.tableau-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+}
+
+/* Force Tableau placeholder to align and center */
+.tableauPlaceholder {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+}
+
+/* Force the actual Tableau viz to center */
+.tableauPlaceholder object {
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+/* Optional: add a soft max width to make it readable */
+#vizStreaming {
+    max-width: 1100px;
+    width: 100%;
+}
